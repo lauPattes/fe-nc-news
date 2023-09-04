@@ -12,7 +12,6 @@ export default function Home(){
         .get("https://laura-news.onrender.com/api/articles")
         .then(({data})=>{
             const {articles} = data
-            console.log(data)
             setArticleArray(articles)
         })
     },[])

@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Link, Route, Routes } from 'react-router-dom'
 import Home from './Home'
-
+import SingleArticle from './SingleArticle.jsx'
 
 
 function App() {
@@ -12,7 +12,7 @@ return(
   <>
   <Routes>
     <Route path="/" element={<Home/>}/>
-    {/* <Route path="/:article_id" element={<A/>}/> */}
+    <Route path="/articles/:article_id" element={<SingleArticle/>}/>
   </Routes>
   </>
 )
