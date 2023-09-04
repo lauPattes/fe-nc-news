@@ -12,6 +12,7 @@ return(
   <>
   <Routes>
     <Route path="/" element={<Home/>}/>
+    {/* <Route path="/:article_id" element={<A/>}/> */}
   </Routes>
   </>
 )
