@@ -21,7 +21,9 @@ return(
     <>
     <header>
         <h1 className="Welcome">Welcome To Laura News</h1>
-        <Link to="/home_pop-up" className="Menu_link">Menu</Link>
+        <nav className="menuLink">
+        <Link to="/home_pop-up">Menu</Link>
+        </nav>
     </header>
     <main>
         <ul className="articleList">
