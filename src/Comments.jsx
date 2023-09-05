@@ -19,16 +19,25 @@ export default function Comments(){
           });
       }, []);
 
+    function anyComments (){
+        if(commentsArray.length > 0){
+            return true 
+        } else {
+            return false
+        }
+    }
 
 return (
     <body>
         <SingleArticle/>
-        <ol className="commentsList">
+        {anyComments() ? <ol className="commentsList">
             {commentsArray.map((comment)=>{
                 return<CommentCard key={comment.comment_id}
                 comment = {comment}/>
             })}
         </ol>
+        : <p>This article has no comments</p>
+    }
     </body>
 )
 
