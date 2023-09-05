@@ -26,13 +26,21 @@ export default function SingleArticle() {
      return(likeCount + 1) 
     })
     PatchVoteCount(article_id, 1)
-  }
+    .catch((err)=>{
+      SetLikeCount((likeCount)=>{
+        likeCount - 1})
+      })
+    }
 
   function handleDisLikeClick() {
     SetLikeCount((likeCount)=>{
      return(likeCount - 1) 
     })
     PatchVoteCount(article_id, -1)
+    .catch((err)=>{
+      SetLikeCount((likeCount)=>{
+        likeCount + 1})
+      })
   }
 
   return (
