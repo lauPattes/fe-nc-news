@@ -44,8 +44,24 @@
   border-radius: 2px;
 }
 
+.CommentLink {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
 .likeButton:hover {
   background: red;
+  cursor: pointer;
+}
+
+.CommentLink:hover {
+  background: red;
+  cursor: pointer;
 }
 
 .likeButton .badge {
@@ -58,4 +74,32 @@
   color: white;
 }
 
+.individualarticleHeader{
+  text-align: center;
+}
+
+.individualarticleHeader .nav{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.individualarticleHeader .nav .backButton{
+}
+
+.individualArticleSection{
+  text-align: center;
+  padding: 2rem;
+}
+
+.individualArticleSection .individualArticleBody{
+  padding: 2em;
+  line-height: 1.5;
+}
+
+.individualArticleFooter{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 

@@ -7,7 +7,7 @@ export default function SingleArticle() {
 
   const [individualArticle, setIndividualArticle] = useState({});
 
-  const[currentLikeCount, setCurrentLikeCount] = useState(0)
+  const [currentLikeCount, setCurrentLikeCount] = useState(0);
 
   useEffect(() => {
     axios
@@ -16,22 +16,23 @@ export default function SingleArticle() {
         const { article } = data;
         console.log(article);
         setIndividualArticle(article);
-        setCurrentLikeCount(article.votes)
+        setCurrentLikeCount(article.votes);
       });
   }, []);
 
-  function handleLikeClick(){
-    const localCount = currentLikeCount ++
+  function handleLikeClick() {
+    const localCount = currentLikeCount++;
   }
-  
 
   return (
     <body>
       <header className="individualarticleHeader">
         <h1 className="articleTitle">{individualArticle.title}</h1>
         <h2 className="articleAuthor">{individualArticle.author}</h2>
+        <nav className="nav">
         <Link to="/">Home</Link>
-        <button>Back to {individualArticle.topic}</button>
+        <button className="backButton">Back to {individualArticle.topic}</button>
+        </nav>
       </header>
       <section className="individualArticleSection">
         <img
@@ -44,9 +45,11 @@ export default function SingleArticle() {
       <footer className="individualArticleFooter">
         <button className="likeButton">
           <span>Like</span>
-          <span className="badge" onClick={handleLikeClick}>{individualArticle.votes}</span>
+          <span className="badge" onClick={handleLikeClick}>
+            {individualArticle.votes}
+          </span>
         </button>
-        <Link to={`/articles/${article_id}/comments`}>Comments</Link>
+        <Link to={`/articles/${article_id}/comments`}className="CommentLink">Comments</Link>
       </footer>
     </body>
   );
