@@ -1,11 +1,8 @@
 import axios from "axios";
 
-export default function PatchVoteCount(article_id){
+export default function PatchVoteCount(article_id, num){
 axios
 .patch(`https://laura-news.onrender.com/api/articles/${article_id}`,{
-     inc_votes: 1 
-})
-.then((response)=>{
-    console.log(response)
+     inc_votes: num
 })
 }
