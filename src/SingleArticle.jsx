@@ -48,7 +48,7 @@ export default function SingleArticle() {
             {individualArticle.votes}
           </p>
         </button>
-        <Link to={`/articles/${article_id}/comments`}className="CommentLink" >Comments</Link>
+        <Link to={`/articles/${article_id}/comments`}className="CommentLink" >View Comments</Link>
       </footer>
     </body>
   );
