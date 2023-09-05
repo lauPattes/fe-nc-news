@@ -13,7 +13,7 @@ return(
   <Routes>
     <Route path="/" element={<Home/>}/>
     <Route path="/articles/:article_id" element={<SingleArticle/>}/>
-    <Route path="//articles/:article_id/comments" element={<Comments/>}></Route>
+    <Route path="/articles/:article_id/comments" element={<Comments/>}></Route>
   </Routes>
 )
 }
