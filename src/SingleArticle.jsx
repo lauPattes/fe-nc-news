@@ -22,8 +22,9 @@ export default function SingleArticle() {
   }, []);
 
   function handleLikeClick() {
+    console.log(likeCount)
     SetLikeCount((likeCount)=>{
-      likeCount++
+     return(likeCount + 1) 
     })
     console.log(likeCount)
     PatchVoteCount(article_id)
