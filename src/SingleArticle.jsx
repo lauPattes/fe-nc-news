@@ -43,10 +43,10 @@ export default function SingleArticle() {
       </section>
       <footer className="individualArticleFooter">
         <button className="likeButton">
-          <span>Like</span>
-          <span className="badge" onClick={handleLikeClick}>
+          <p>Like</p>
+          <p className="badge" onClick={handleLikeClick}>
             {individualArticle.votes}
-          </span>
+          </p>
         </button>
         <Link to={`/articles/${article_id}/comments`}className="CommentLink" >Comments</Link>
       </footer>
