@@ -9,12 +9,10 @@ import SingleArticle from './SingleArticle.jsx'
 
 function App() {
 return(
-  <>
   <Routes>
     <Route path="/" element={<Home/>}/>
     <Route path="/articles/:article_id" element={<SingleArticle/>}/>
   </Routes>
-  </>
 )
 }
 
