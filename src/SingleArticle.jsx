@@ -1,13 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import PatchVoteCount from "./PatchVoteCount";
 
 export default function SingleArticle() {
   const { article_id } = useParams();
 
   const [individualArticle, setIndividualArticle] = useState({});
 
-  const [currentLikeCount, setCurrentLikeCount] = useState(0);
+  const [likeCount, SetLikeCount ] = useState(0);
+
 
   useEffect(() => {
     axios
@@ -15,12 +17,30 @@ export default function SingleArticle() {
       .then(({ data }) => {
         const { article } = data;
         setIndividualArticle(article);
-        setCurrentLikeCount(article.votes);
+        SetLikeCount(article.votes);
       });
   }, []);
 
   function handleLikeClick() {
-    const localCount = currentLikeCount++;
+    SetLikeCount((likeCount)=>{
+     return(likeCount + 1) 
+    })
+    PatchVoteCount(article_id, 1)
+    .catch((err)=>{
+      SetLikeCount((likeCount)=>{
+        likeCount - 1})
+      })
+    }
+
+  function handleDisLikeClick() {
+    SetLikeCount((likeCount)=>{
+     return(likeCount - 1) 
+    })
+    PatchVoteCount(article_id, -1)
+    .catch((err)=>{
+      SetLikeCount((likeCount)=>{
+        likeCount + 1})
+      })
   }
 
   return (
@@ -42,12 +62,17 @@ export default function SingleArticle() {
         <main className="individualArticleBody">{individualArticle.body}</main>
       </section>
       <footer className="individualArticleFooter">
-        <button className="likeButton">
+        <span>
+        <button className="likeButton" onClick={handleLikeClick}>
           <p>Like</p>
-          <p className="badge" onClick={handleLikeClick}>
-            {individualArticle.votes}
+        </button>
+        <button className="dislikeButton" onClick={handleDisLikeClick}>
+          <p>Dislike</p>
+          <p className="badge">
+            Likes: {likeCount}
           </p>
         </button>
+        </span>
         <Link to={`/articles/${article_id}/comments`}className="CommentLink" >View Comments</Link>
       </footer>
     </body>
