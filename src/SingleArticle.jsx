@@ -14,7 +14,6 @@ export default function SingleArticle() {
       .get(`https://laura-news.onrender.com/api/articles/${article_id}`)
       .then(({ data }) => {
         const { article } = data;
-        console.log(article);
         setIndividualArticle(article);
         setCurrentLikeCount(article.votes);
       });
@@ -44,12 +43,12 @@ export default function SingleArticle() {
       </section>
       <footer className="individualArticleFooter">
         <button className="likeButton">
-          <span>Like</span>
-          <span className="badge" onClick={handleLikeClick}>
+          <p>Like</p>
+          <p className="badge" onClick={handleLikeClick}>
             {individualArticle.votes}
-          </span>
+          </p>
         </button>
-        <Link to={`/articles/${article_id}/comments`}className="CommentLink">Comments</Link>
+        <Link to={`/articles/${article_id}/comments`}className="CommentLink" >View Comments</Link>
       </footer>
     </body>
   );
