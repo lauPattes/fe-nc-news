@@ -14,7 +14,6 @@ export default function SingleArticle() {
       .get(`https://laura-news.onrender.com/api/articles/${article_id}`)
       .then(({ data }) => {
         const { article } = data;
-        console.log(article);
         setIndividualArticle(article);
         setCurrentLikeCount(article.votes);
       });
@@ -49,7 +48,7 @@ export default function SingleArticle() {
             {individualArticle.votes}
           </span>
         </button>
-        <Link to={`/articles/${article_id}/comments`}className="CommentLink">Comments</Link>
+        <Link to={`/articles/${article_id}/comments`}className="CommentLink" >Comments</Link>
       </footer>
     </body>
   );
