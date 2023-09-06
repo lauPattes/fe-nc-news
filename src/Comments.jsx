@@ -32,15 +32,13 @@ export default function Comments(){
 return (
     <body>
         <SingleArticle/>
-        {isCommentsLoading ?<p>LOADING....</p> : null}
-        {anyComments() ? <ol className="commentsList">
+        {isCommentsLoading ?<p>LOADING....</p> : anyComments() ? <ol className="commentsList">
             {commentsArray.map((comment)=>{
                 return<CommentCard key={comment.comment_id}
                 comment = {comment}/>
             })}
         </ol>
-        : <p>This article has no comments</p>
-    }
+        : <p>This article has no comments</p> }
     </body>
 )
 }
