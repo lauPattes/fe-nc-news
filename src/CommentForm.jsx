@@ -7,25 +7,18 @@ export default function CommentForm() {
 
   const { user, setUser } = useContext(LoggedInUserContext);
 
-  console.log(user)
 
   function handleCommentBodyChange (){}
 
-  function isUserLoggedIn(){
-    if(user.length === 0) {
-        return false
-    } else {
-        return true
-    }
-  }
 
-  if(isUserLoggedIn() === false){
+  if(user === null){
     return(
       <Link to="/log_in">Please log in to post a comment</Link>
     )
   } else {
     return (
         <form>
+          <p>You are logged in as {user.username}</p>
           <label htmlFor="commentBody">Comment</label>
           <textarea
             id="commentBody"

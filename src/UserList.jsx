@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { LoggedInUserContext } from "./LoggedInUser";
 
 export default function UserList() {
-  const { user, setUser } = useContext(LoggedInUserContext);
+  const { user, SetUser } = useContext(LoggedInUserContext);
 
   const [availableUsers, SetAvailableUsers] = useState([]);
   const [inputName, SetInputName] = useState("");
@@ -15,7 +15,7 @@ export default function UserList() {
     axios.get("https://laura-news.onrender.com/api/users").then(({ data }) => {
       const usersArray = data.response;
       SetAvailableUsers(usersArray);
-      console.log(availableUsers)
+      console.log(availableUsers);
     });
   }, []);
 
@@ -29,34 +29,14 @@ export default function UserList() {
 
   function handleUserSubmit(event) {
     event.preventDefault();
-    SetAttemptedToLogIn(true);
-    let inputMatchesUser = false;
     availableUsers.forEach((availableUser) => {
       if (
         availableUser.name === inputName &&
         availableUser.username === inputUsername
       ) {
-        inputMatchesUser = true;
-        setUser(availableUser);
+        return SetUser(availableUser);
       }
     });
-
-    if (inputMatchesUser) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  function logInResult() {
-    if (attemptedToLogIn === true) {
-      if (handleUserSubmit === true) {
-        return <p>You are succesfully logged in as {user.username}</p>;
-      } else {
-        return <p>Name/Username incorrect, please try again</p>;
-      }
-      SetAttemptedToLogIn(false)
-    }
   }
 
   return (
@@ -80,7 +60,11 @@ export default function UserList() {
         />
         <button>Log In</button>
       </form>
-      {logInResult()}
+      {user ? (
+        <p>you are succesffully logged in as {user.username}</p>
+      ) : (
+        <p>name/username incorrect please try again</p>
+      )}
     </section>
   );
 }
