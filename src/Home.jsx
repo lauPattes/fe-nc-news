@@ -1,40 +1,38 @@
-import { Link } from "react-router-dom"
-import ArticleCard from "./ArticleCard"
-import { useEffect, useState } from "react"
-import axios from "axios"
+import { Link } from "react-router-dom";
+import ArticleCard from "./ArticleCard";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
+export default function Home() {
+  const [ArticleArray, setArticleArray] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-export default function Home(){
-    const [ArticleArray, setArticleArray] = useState([])
+  useEffect(() => {
+    axios
+      .get("https://laura-news.onrender.com/api/articles")
+      .then(({ data }) => {
+        const { articles } = data;
+        setArticleArray(articles);
+        setIsLoading(false)
+      });
+  }, []);
 
-    useEffect(()=>{
-        axios
-        .get("https://laura-news.onrender.com/api/articles")
-        .then(({data})=>{
-            const {articles} = data
-            setArticleArray(articles)
-        })
-    },[])
-
-return(
+  return (
     <>
-    <header>
+      <header>
         <h1 className="Welcome">Welcome To Laura News</h1>
         <nav className="menuLink">
-        <Link to="/home_pop-up">Menu</Link>
+          <Link to="/home_pop-up">Menu</Link>
         </nav>
-    </header>
-    <main>
+      </header>
+      <main>
+        {isLoading ? <p><b>LOADING....</b></p> : null}
         <ul className="articleList">
-            {ArticleArray.map((article)=>{
-                return(
-                    <ArticleCard key ={article.article_id}
-                    article = {article}/>
-                )
-            })}
+          {ArticleArray.map((article) => {
+            return <ArticleCard key={article.article_id} article={article} />;
+          })}
         </ul>
-    </main>
+      </main>
     </>
-)
-
+  );
 }
