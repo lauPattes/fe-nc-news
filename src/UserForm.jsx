@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { LoggedInUserContext } from "./LoggedInUser";
 
-export default function UserList() {
+export default function UserForm() {
   const { user, SetUser } = useContext(LoggedInUserContext);
 
   const [availableUsers, SetAvailableUsers] = useState([]);
@@ -40,7 +40,7 @@ export default function UserList() {
   }
 
   return (
-    <section>
+    <section className="userForm">
       <form onSubmit={handleUserSubmit}>
         <label htmlFor="name" id="name">
           Enter name
@@ -61,9 +61,13 @@ export default function UserList() {
         <button>Log In</button>
       </form>
       {user ? (
-        <p>you are succesffully logged in as {user.username}</p>
+        <p>you have succesffully logged in as {user.username}</p>
       ) : (
-        <p>name/username incorrect please try again</p>
+        <p>Please enter a valid name/username
+            (name: Tom Tickle
+            username: tickle 122
+            is a user in the system)
+        </p>
       )}
     </section>
   );

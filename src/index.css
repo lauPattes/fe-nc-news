@@ -121,3 +121,20 @@
 .Loading{
   text-align: center;
 }
+
+.log_in .nav{
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  row-gap: 1em;
+}
+
+.homeLink{
+  text-align: center;
+}
+
+.commentForm{
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+}

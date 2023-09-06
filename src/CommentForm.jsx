@@ -17,9 +17,8 @@ export default function CommentForm() {
     )
   } else {
     return (
-        <form>
-          <p>You are logged in as {user.username}</p>
-          <label htmlFor="commentBody">Comment</label>
+        <form className="commentForm">
+          <label htmlFor="commentBody">You are logged in as {user.username}, post a comment:</label>
           <textarea
             id="commentBody"
             name="commentBody"
