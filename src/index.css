@@ -117,3 +117,7 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+.Loading{
+  text-align: center;
+}

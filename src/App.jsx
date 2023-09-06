@@ -6,6 +6,7 @@ import { Link, Route, Routes } from 'react-router-dom'
 import Home from './Home'
 import SingleArticle from './SingleArticle.jsx'
 import Comments from './Comments'
+import LogIn from './LogIn'
 
 
 function App() {
@@ -14,6 +15,7 @@ return(
     <Route path="/" element={<Home/>}/>
     <Route path="/articles/:article_id" element={<SingleArticle/>}/>
     <Route path="/articles/:article_id/comments" element={<Comments/>}></Route>
+    <Route path="/log_in" element={<LogIn/>}></Route>
   </Routes>
 )
 }

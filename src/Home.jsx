@@ -26,7 +26,7 @@ export default function Home() {
         </nav>
       </header>
       <main>
-        {isLoading ? <p><b>LOADING....</b></p> : null}
+        {isLoading ? <p className="Loading"><b>LOADING....</b></p> : null}
         <ul className="articleList">
           {ArticleArray.map((article) => {
             return <ArticleCard key={article.article_id} article={article} />;
