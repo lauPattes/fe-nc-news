@@ -15,7 +15,6 @@ export default function UserForm() {
     axios.get("https://laura-news.onrender.com/api/users").then(({ data }) => {
       const usersArray = data.response;
       SetAvailableUsers(usersArray);
-      console.log(availableUsers);
     });
   }, []);
 
