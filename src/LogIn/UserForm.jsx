@@ -64,8 +64,7 @@ export default function UserForm() {
         <p>you have succesffully logged in as {user.username}</p>
       ) : (
         <p>
-          Please enter a valid name/username (name: Tom Tickle username: tickle
-          122 is a user in the system)
+          Please enter a valid name/username (name: Tom Tickle username: tickle122 is a user in the system)
         </p>
       )}
     </section>
