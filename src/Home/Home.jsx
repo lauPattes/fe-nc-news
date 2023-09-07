@@ -22,7 +22,8 @@ export default function Home() {
       <header>
         <h1 className="Welcome">Welcome To Laura News</h1>
         <nav className="menuLink">
-          <Link to="/home_pop-up">Menu</Link>
+          <Link to="/log_in">Log In</Link>
+          
         </nav>
       </header>
       <main>
