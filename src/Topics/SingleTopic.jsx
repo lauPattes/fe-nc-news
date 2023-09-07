@@ -40,6 +40,7 @@ return(
             </nav>
         </header>
         <main>
+        {isLoading ? <p className="Loading"><b>LOADING....</b></p> : null}
         <ul className="articleList">
           {articlesOnTopic.map((article) => {
             return <ArticleCard key={article.article_id} article={article} />;
