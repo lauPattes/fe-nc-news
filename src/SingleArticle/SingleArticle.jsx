@@ -10,6 +10,8 @@ export default function SingleArticle() {
 
   const [likeCount, SetLikeCount ] = useState(0);
 
+  const [isArticleLoading, setIsArticleLoading] = useState(true)
+
 
   useEffect(() => {
     axios
@@ -18,6 +20,7 @@ export default function SingleArticle() {
         const { article } = data;
         setIndividualArticle(article);
         SetLikeCount(article.votes);
+        setIsArticleLoading(false)
       });
   }, []);
 
@@ -54,6 +57,7 @@ export default function SingleArticle() {
         </nav>
       </header>
       <section className="individualArticleSection">
+        {isArticleLoading ? <p>LOADING...</p> : null}
         <img
           className="individualArticleImage"
           src={individualArticle.article_img_url}
