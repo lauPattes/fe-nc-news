@@ -18,10 +18,10 @@ export default function Topics() {
   return (
     <section className="topicsPage">
       <header>
-        <h1>Available Topics</h1>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/log_in">Log In</Link>
+        <h1 className="TopicsHeader">Available Topics</h1>
+        <nav className="menuLink">
+          <Link to="/" className="homeLink">Home</Link>
+          <Link to="/log_in" className="LogInLink">Log In</Link>
         </nav>
       </header>
       <main>

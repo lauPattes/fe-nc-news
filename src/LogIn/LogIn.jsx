@@ -9,9 +9,6 @@ export default function LogIn() {
     <div className="log_in">
       <header>
         <nav className="nav">
-          <Link to="/home_pop-up" className="menuLink">
-            Menu
-          </Link>
           <Link to="/" className="homeLink">
             Home
           </Link>

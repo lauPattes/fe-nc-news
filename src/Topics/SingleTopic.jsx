@@ -32,8 +32,8 @@ useEffect(()=>{
 return(
     <section className="SingleTopicPage">
         <header>
-            <h1>{topic_name}</h1>
-            <nav>
+            <h1 className="TopicsHeader">{topic_name}</h1>
+            <nav className="nav">
             <Link to="/">Home</Link>
             <Link to="/log_in">Log In</Link>
             <Link to="/topics">Back to Topics</Link>
