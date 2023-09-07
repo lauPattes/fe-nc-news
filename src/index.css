@@ -32,6 +32,16 @@
 
 .menuLink{
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.LogInLink{
+  padding: 1em;
+  font-size:x-large
+}
+.TopicsLink{
+  font-size:x-large
 }
 
 .likeButton {

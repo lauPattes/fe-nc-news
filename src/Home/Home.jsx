@@ -22,8 +22,8 @@ export default function Home() {
       <header>
         <h1 className="Welcome">Welcome To Laura News</h1>
         <nav className="menuLink">
-          <Link to="/log_in">Log In</Link>
-          <Link to="/topics">View Topics</Link>
+          <Link to="/log_in" className="LogInLink">Log In</Link>
+          <Link to="/topics" className="TopicsLink">View Topics</Link>
         </nav>
       </header>
       <main>
