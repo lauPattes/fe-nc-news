@@ -10,7 +10,6 @@ export default function Comments() {
 
   const [commentsArray, setCommentsArray] = useState([]);
   const [isCommentsLoading, setIsCommentsLoading] = useState(true);
-  
 
   useEffect(() => {
     axios
@@ -39,7 +38,7 @@ export default function Comments() {
         <p>LOADING....</p>
       ) : anyComments() ? (
         <section>
-            <CommentForm/>
+          <CommentForm />
           <ol className="commentsList">
             {commentsArray.map((comment) => {
               return <CommentCard key={comment.comment_id} comment={comment} />;

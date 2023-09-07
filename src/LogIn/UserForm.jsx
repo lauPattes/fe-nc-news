@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useContext } from "react";
-import { LoggedInUserContext } from "./LoggedInUser";
+import { LoggedInUserContext } from "../LoggedInUser";
 
 export default function UserForm() {
   const { user, SetUser } = useContext(LoggedInUserContext);
@@ -63,10 +63,9 @@ export default function UserForm() {
       {user ? (
         <p>you have succesffully logged in as {user.username}</p>
       ) : (
-        <p>Please enter a valid name/username
-            (name: Tom Tickle
-            username: tickle 122
-            is a user in the system)
+        <p>
+          Please enter a valid name/username (name: Tom Tickle username: tickle
+          122 is a user in the system)
         </p>
       )}
     </section>
