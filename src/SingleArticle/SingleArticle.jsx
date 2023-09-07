@@ -46,6 +46,8 @@ export default function SingleArticle() {
       })
   }
 
+
+
   return (
     <body>
       <header className="individualarticleHeader">
@@ -53,7 +55,7 @@ export default function SingleArticle() {
         <h2 className="articleAuthor">{individualArticle.author}</h2>
         <nav className="nav">
         <Link to="/">Home</Link>
-        <button className="backButton">Back to {individualArticle.topic}</button>
+        <Link to={`/articles/topics/${individualArticle.topic}`}>Back to {individualArticle.topic}</Link>
         </nav>
       </header>
       <section className="individualArticleSection">

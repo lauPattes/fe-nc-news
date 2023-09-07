@@ -3,7 +3,7 @@ import { LoggedInUserContext } from "../LoggedInUser";
 import { Link, useParams } from "react-router-dom";
 import PostComment from "./PostComment";
 
-export default function CommentForm({setUsersComment}) {
+export default function CommentForm({setCommentsArray}) {
 
 
   const {article_id} = useParams()
@@ -14,6 +14,8 @@ export default function CommentForm({setUsersComment}) {
 
   const [errMessage, setErrMessage] = useState("")
 
+  const [isCommentStillPosting, setIsCommentStillPosting] = useState(false)
+
 
   function handleCommentBodyChange(event) {
     setCommentBody(event.target.value)
@@ -22,10 +24,17 @@ export default function CommentForm({setUsersComment}) {
   function handleCommentSubmit(event){
     event.preventDefault()
     setErrMessage("")
-    setUsersComment(commentBody)
+    setIsCommentStillPosting(true)
     PostComment(commentBody, user, article_id)
+    .then(({data})=>{
+      const {comment} = data
+      setCommentsArray((currentArray)=>{
+        return [comment,...currentArray]
+      })
+      setIsCommentStillPosting(false)
+      setCommentBody("")
+    })
     .catch((err)=>{
-    setUsersComment("")
     setErrMessage("Comment failed to upload, please try again later")
   })
   }
@@ -53,6 +62,7 @@ export default function CommentForm({setUsersComment}) {
         <button id="submitCommentButton" type="submit">
           Submit Comment
         </button>
+        <p>{isCommentStillPosting ? <p className="Loading"><b>LOADING....</b></p> : null}</p>
         <p>{errMessage}</p>
       </form>
     );
