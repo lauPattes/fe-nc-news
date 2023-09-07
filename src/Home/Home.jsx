@@ -25,6 +25,17 @@ export default function Home() {
           <Link to="/log_in" className="LogInLink">Log In</Link>
           <Link to="/topics" className="TopicsLink">View Topics</Link>
         </nav>
+        <section className="sortButtons">
+          Order By:
+          <button className="dates">
+            Date Asc
+          </button>
+          <button className="dates">
+            Date Desc
+          </button>
+          <button>
+          </button>
+        </section>
       </header>
       <main>
         {isLoading ? <p className="Loading"><b>LOADING....</b></p> : null}

@@ -172,3 +172,10 @@
   row-gap: 1em;
   align-items: center;
 }
+
+.sortButtons . dates{
+    float: left;
+    border: 1px solid green;
+
+}
+
