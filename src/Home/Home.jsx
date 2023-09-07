@@ -23,7 +23,7 @@ export default function Home() {
         <h1 className="Welcome">Welcome To Laura News</h1>
         <nav className="menuLink">
           <Link to="/log_in">Log In</Link>
-          
+          <Link to="/topics">View Topics</Link>
         </nav>
       </header>
       <main>
