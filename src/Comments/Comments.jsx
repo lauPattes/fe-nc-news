@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import SingleArticle from "./SingleArticle";
+import SingleArticle from "../SingleArticle/SingleArticle";
 import CommentCard from "./CommentCard";
 import CommentForm from "./CommentForm";
 

@@ -1,9 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { LoggedInUserContext } from "../LoggedInUser";
 import { Link } from "react-router-dom";
 
+
 export default function CommentForm() {
+
   const { user, setUser } = useContext(LoggedInUserContext);
+
+  const {commentBody, SetCommentBody} = useState("")
+
+
 
   function handleCommentBodyChange() {}
 
@@ -21,6 +27,7 @@ export default function CommentForm() {
           rows={5}
           cols={33}
           placeholder="Leave your comment here"
+          value={commentBody}
           onChange={handleCommentBodyChange}
         />
         <button id="submitCommentButton" type="submit">

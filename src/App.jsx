@@ -3,10 +3,12 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Link, Route, Routes } from 'react-router-dom'
-import Home from './Home'
-import SingleArticle from './SingleArticle.jsx'
-import Comments from './Comments'
-import LogIn from './LogIn'
+import Home from "./Home/Home.jsx"
+import SingleArticle from "./SingleArticle/SingleArticle"
+
+import Comments from './Comments/Comments.jsx'
+import LogIn from './LogIn/LogIn.jsx'
+
 
 
 function App() {
