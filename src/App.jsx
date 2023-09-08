@@ -9,7 +9,7 @@ import Comments from './Comments/Comments.jsx'
 import LogIn from './LogIn/LogIn.jsx'
 import Topics from './Topics/Topics'
 import SingleTopic from './Topics/SingleTopic'
-
+import ErrorPage from './ErrorPage'
 
 
 function App() {
@@ -21,6 +21,7 @@ return(
     <Route path="/log_in" element={<LogIn/>}></Route>
     <Route path="/topics" element={<Topics/>}></Route>
     <Route path="/articles/topics/:topic_name" element={<SingleTopic/>}></Route>
+    <Route path="*" element={<ErrorPage/>}></Route> 
   </Routes>
 )
 }
