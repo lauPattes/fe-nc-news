@@ -9,23 +9,22 @@ const {topic_name} = useParams()
 
 const [articlesOnTopic, setArticlesOnTopic] = useState([])
 const [isLoading, setIsLoading] = useState(true);
+const [TopicError, setTopicError] = useState(null);
 
 useEffect(()=>{
     axios
-    .get("https://laura-news.onrender.com/api/articles")
+    .get(`https://laura-news.onrender.com/api/articles?topic=${topic_name}`)
     .then(({data})=>{
         const {articles} = data
-        let releaventArticles = []
-        articles.forEach((article)=>{
-            if(article.topic === topic_name){
-                return releaventArticles.push(article)
-            }
-        })
-        setArticlesOnTopic(releaventArticles)
+        setArticlesOnTopic(articles)
         setIsLoading(false)
         console.log(releaventArticles);
     
     })
+    .catch((err)=>{
+        console.log(err)
+        setTopicError(err)
+      })
 },[])
 
 
