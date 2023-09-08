@@ -25,7 +25,6 @@ export default function SingleArticle() {
         setIsArticleLoading(false)
       })
       .catch((err)=>{
-        console.log(err)
         setError(err)
       })
   }, []);
