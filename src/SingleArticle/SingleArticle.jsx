@@ -12,6 +12,8 @@ export default function SingleArticle() {
 
   const [isArticleLoading, setIsArticleLoading] = useState(true)
 
+  const [error, setError] = useState(null);
+
 
   useEffect(() => {
     axios
@@ -21,7 +23,11 @@ export default function SingleArticle() {
         setIndividualArticle(article);
         SetLikeCount(article.votes);
         setIsArticleLoading(false)
-      });
+      })
+      .catch((err)=>{
+        console.log(err)
+        setError(err)
+      })
   }, []);
 
   function handleLikeClick() {
@@ -46,7 +52,15 @@ export default function SingleArticle() {
       })
   }
 
+if(error){
+  const {response} = error
+  const {status, data} = response
+  const msg = data.msg
 
+  return (
+    <h1>{status} error, {msg}</h1>
+  )
+} else {
 
   return (
     <body>
@@ -83,4 +97,6 @@ export default function SingleArticle() {
       </footer>
     </body>
   );
+
+}
 }
