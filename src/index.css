@@ -207,3 +207,12 @@ btn-group button:not(:last-child) {
 .btn-group button:hover.desc {
   background-color: rgba(230, 9, 9, 0.695)
 }
+
+.ErrorPage{
+  text-align: center;
+  font-size: xx-large;
+}
+
+.ErrorPage .homeLink{
+  font-size: xx-large;
+}
