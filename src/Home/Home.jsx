@@ -21,7 +21,6 @@ export default function Home() {
         const { articles } = data;
         setArticleArray(articles);
         setIsLoading(false);
-        console.log(ArticleArray);
       });
   }, [upOrDown, sort]);
 
@@ -34,6 +33,27 @@ export default function Home() {
     setSort("created_at");
     setUpOrDown("desc");
   }
+
+  function sortByVotesAsc(){
+    setSort("votes")
+    setUpOrDown("asc")
+  }
+
+  function sortByVotesDesc(){
+    setSort("votes")
+    setUpOrDown("desc")
+  }
+
+  function sortByCommentCountAsc(){
+    setSort("comment_count")
+    setUpOrDown("asc")
+  }
+
+  function sortByCommentCountDesc(){
+    setSort("comment_count")
+    setUpOrDown("desc")
+  }
+
 
 
   return (
@@ -53,13 +73,17 @@ export default function Home() {
           <button className="dates" onClick={sortByDateAsc}>
             Date Asc
           </button>
-          <button className="dates" onClick={sortByDateDesc}>
+          <button className="desc" onClick={sortByDateDesc}>
             Date Desc
           </button>
         </div>
         <div className="btn-group"> 
-        <button className="votes">Votes Asc</button>
-        <button className="votes">Votes Desc</button>
+        <button className="votes" onClick={sortByVotesAsc}>Votes Asc</button>
+        <button className="desc" onClick={sortByVotesDesc}>Votes Desc</button>
+        </div>
+        <div className="btn-group"> 
+        <button className="comment count" onClick={sortByCommentCountAsc}>Comment Count Asc</button>
+        <button className="desc" onClick={sortByCommentCountDesc}>Comment Count Desc</button>
         </div>
       </header>
       <main>

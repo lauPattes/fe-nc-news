@@ -182,6 +182,12 @@
   float: left; /* Float the buttons side by side */
 }
 
+.btn-group .desc{
+  background-color: rgba(140, 6, 6, 0.695);/* rgba background */
+  border: 1px solid rgba(140, 6, 6, 0.695); /* rgba border */
+  color: white; /* White text */
+}
+
 btn-group button:not(:last-child) {
   border-right: none; /* Prevent double borders */
 }
@@ -196,4 +202,8 @@ btn-group button:not(:last-child) {
 /* Add a background color on hover */
 .btn-group button:hover {
   background-color: #3e8e41;
+}
+
+.btn-group button:hover.desc {
+  background-color: rgba(230, 9, 9, 0.695)
 }
