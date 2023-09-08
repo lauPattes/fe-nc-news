@@ -10,6 +10,7 @@ export default function Comments() {
 
   const [commentsArray, setCommentsArray] = useState([]);
   const [isCommentsLoading, setIsCommentsLoading] = useState(true);
+  const [isCommentStillPosting, setIsCommentStillPosting] = useState(false)
 
 
   useEffect(() => {
@@ -32,7 +33,6 @@ export default function Comments() {
     }
   }
 
-
   return (
     <body>
       <SingleArticle />
@@ -40,15 +40,18 @@ export default function Comments() {
         <p>LOADING....</p>
       ) : anyComments() ? (
         <section>
-          <CommentForm  setCommentsArray={setCommentsArray}/>
+          <CommentForm  setCommentsArray={setCommentsArray} isCommentStillPosting={isCommentStillPosting} setIsCommentStillPosting={setIsCommentStillPosting}/>
           <ol className="commentsList">
             {commentsArray.map((comment) => {
-              return <CommentCard key={comment.comment_id} comment={comment} />;
+              return <CommentCard key={comment.comment_id} comment={comment} isCommentStillPosting={isCommentStillPosting} setIsCommentStillPosting={setIsCommentStillPosting}/>;
             })}
           </ol>
         </section>
       ) : (
-        <p>This article has no comments</p>
+        <section>
+          <p>This article has no comments</p>
+        <CommentForm  setCommentsArray={setCommentsArray}/>
+        </section>
       )}
     </body>
   );

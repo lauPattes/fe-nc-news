@@ -3,7 +3,7 @@ import { LoggedInUserContext } from "../LoggedInUser";
 import { Link, useParams } from "react-router-dom";
 import PostComment from "./PostComment";
 
-export default function CommentForm({setCommentsArray}) {
+export default function CommentForm({setCommentsArray, isCommentStillPosting, setIsCommentStillPosting}) {
 
 
   const {article_id} = useParams()
@@ -14,7 +14,6 @@ export default function CommentForm({setCommentsArray}) {
 
   const [errMessage, setErrMessage] = useState("")
 
-  const [isCommentStillPosting, setIsCommentStillPosting] = useState(false)
 
 
   function handleCommentBodyChange(event) {
@@ -24,6 +23,7 @@ export default function CommentForm({setCommentsArray}) {
   function handleCommentSubmit(event){
     event.preventDefault()
     setErrMessage("")
+    console.log(isCommentStillPosting);
     setIsCommentStillPosting(true)
     PostComment(commentBody, user, article_id)
     .then(({data})=>{
