@@ -13,15 +13,18 @@ export default function Home() {
   useEffect(() => {
     axios
       .get("https://laura-news.onrender.com/api/articles",{
+        params: {
         sort_by: sort,
         order: upOrDown
+        }
       })
       .then(({ data }) => {
         const { articles } = data;
         setArticleArray(articles);
         setIsLoading(false)
-      });
-  }, [sort, upOrDown]);
+        console.log(ArticleArray)
+      })
+  }, [upOrDown, sort]);
 
   function sortByDateAsc(){
     setSort("created_at")
