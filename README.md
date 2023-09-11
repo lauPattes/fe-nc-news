@@ -14,7 +14,7 @@ Link to the deployed version of the app: https://lauranews.netlify.app/
 
 A C.R.U.D application from a front end perspective. LauraNews is a news, web content rating and discussion website. LauraNews has articles which are divided into topics, and each article has user-curated ratings from upvotes and downvotes using the API. As well as browsing articles and topics, users can comment on articles.
 
-The app makes use of an api I built which can be found here: https://github.com/lauPattes/fe-nc-news
+The app makes use of an api I built which can be found here: https://github.com/lauPattes/laura-news
 Available endpoints for the api being used can be found on this repo's wiki page: https://github.com/lauPattes/fe-nc-news/wiki/Avaiable-endpoints 
 
 Minimum version of node required to run this project locally: v20.3.1
